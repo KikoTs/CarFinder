@@ -40,7 +40,7 @@ namespace CarFinder.FormApp
             EngineVolume = enginevolume;
             EnginePower = enginepower;
             Year = year;
-            Img = Img + img);
+            Img = Img + img;
             //Img = Img + Convert.ToBase64String(Encoding.UTF8.GetBytes(img));
             //MessageBox.Show(trim);
         }
