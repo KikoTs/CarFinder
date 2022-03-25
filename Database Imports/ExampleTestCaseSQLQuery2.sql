@@ -1,0 +1,17 @@
+--SELECT DISTINCT make FROM [cardatabase].[dbo].[cars];
+--SELECT DISTINCT make from [cardatabase].[dbo].[cars];
+--SELECT *
+--  FROM (
+--                SELECT  make_id AS id, 
+--                        make, 
+--                        ROW_NUMBER() OVER(PARTITION BY make ORDER BY id DESC) rn
+--                    FROM [cardatabase].[dbo].[cars]
+
+--              ) a
+--WHERE rn = 1 ORDER BY make ASC;
+--SELECT * FROM (SELECT *, Row_number() OVER(partition BY make ORDER BY id DESC) rn FROM [cardatabase].[dbo].[cars]) a WHERE rn = 1 ORDER BY make ASC;
+--SELECT make FROM [cardatabase].[dbo].[cars] WHERE make = 'bmw';
+--SELECT make, model, year FROM [cardatabase].[dbo].[cars]  ORDER BY Len(model) DESC;
+--SELECT model FROM [cardatabase].[dbo].[cars] WHERE model LIKE '';
+-- SELECT * FROM [cardatabase].[dbo].[cars] WHERE make = 'BMW' AND model = 'X5' AND year = 2003;
+--SELECT * FROM [cardatabase].[dbo].[cars]; 

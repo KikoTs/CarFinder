@@ -1,0 +1,83 @@
+﻿@model CarFinder.Models.Cars
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details About The</h1>
+
+<div>
+    <h4>Car</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Make)
+        </dd>
+          <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Trim)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Trim)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Generation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Generation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Gearbox)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Gearbox)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Engine_type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Engine_type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Engine_volume)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Engine_volume)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Engine_power)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Engine_power)
+        </dd>
+        <dd class="col-sm-10">
+                <div class="col-md-4 px-0">
+                   <img src="https://info-km.com/api/GoogleAPI/fetchGoogleAPI.php?img=@Model.Image" class="img-fluid">
+                </div>
+            @*<img src="" width="500px" height="450px">*@
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Back to Search</a>
+</div>

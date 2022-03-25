@@ -1,0 +1,38 @@
+USE [cardatabase]
+GO
+CREATE TABLE [dbo].[cars]
+(  
+    [id] INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+    [trim_id] INT DEFAULT NULL,  
+    [trim] NVARCHAR(255) NOT NULL,  
+    [trim_ru] NVARCHAR(255) NOT NULL,  
+    [make_id] INT NOT NULL,  
+    [make] NVARCHAR(255) NOT NULL,  
+    [make_ru] NVARCHAR(255) NOT NULL,  
+    [model_id] INT NOT NULL,  
+    [model] NVARCHAR(255) NOT NULL,  
+    [model_ru] NVARCHAR(255) NOT NULL,  
+    [generation_id] INT NOT NULL,  
+    [generation] NVARCHAR(255) NOT NULL,  
+    [generation_ru] NVARCHAR(255) NOT NULL,  
+    [body_id] INT NOT NULL,  
+    [body] NVARCHAR(255) NOT NULL,  
+    [body_ru] NVARCHAR(255) NOT NULL,  
+    [drive_id] INT NOT NULL,  
+    [drive] NVARCHAR(255) NOT NULL,  
+    [drive_ru] NVARCHAR(255) NOT NULL,  
+    [gearbox_id] INT NOT NULL,  
+    [gearbox] NVARCHAR(255) NOT NULL,  
+    [gearbox_ru] NVARCHAR(255) NOT NULL,  
+    [engine_type_id] INT NOT NULL,  
+    [engine_type] NVARCHAR(255) NOT NULL,  
+    [engine_type_ru] NVARCHAR(255) NOT NULL,  
+    [engine_volume] INT NOT NULL,  
+    [engine_power] INT NOT NULL,  
+    [year] INT NOT NULL,  
+    [image] NVARCHAR(255) NOT NULL,  
+    [date_update] DATE NOT NULL,  
+    [is_active] INT NOT NULL DEFAULT 1,  
+    [old_id] INT NOT NULL DEFAULT 0,  
+    UNIQUE ([trim_id],[make_id],[model_id],[generation_id],[body_id],[drive_id],[gearbox_id],[engine_type_id],[engine_volume],[engine_power],[year])  
+);

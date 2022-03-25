@@ -1,0 +1,3 @@
+sqlcmd -S localhost -i CreateDatabase.sql
+sqlcmd -S localhost -i CreateTable.sql
+sqlcmd -S localhost -i Data.sql -a 32767
