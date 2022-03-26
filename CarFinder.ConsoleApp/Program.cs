@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using CarFinder.Data;
 using CarFinder.Models;
 using CarFinder.Services;
@@ -22,50 +22,54 @@ namespace CarFinder.ConsoleApp
             Console.WriteLine("Using the examples above enter the car information.");
             string carinfo = Console.ReadLine();
             DataTable dt = new DataTable();
-            List<Cars> L = service.DetermineGet(carinfo).ToList();
-            List<int> idList = new List<int>();
-            //var info = DbSet<Cars>().ToList();
-            if (mode == 1)
+            try
             {
-                foreach (var a in L)
+                List<Cars> L = service.DetermineGet(carinfo).ToList();
+                List<int> idList = new List<int>();
+                //var info = DbSet<Cars>().ToList();
+                if (mode == 1)
                 {
-                    idList.Add(a.Id);
-                    Console.WriteLine($"({a.Id}) {a.Make} {a.Model} {a.Year} {a.Trim} {a.Generation} {a.Body} {a.Drive} {a.Gearbox} {a.Engine_type} {a.Engine_volume} {a.Engine_power}");
-                }
-                do
-                {
-                    Console.WriteLine("Select your model!");
-                    string idNotFormatted = Console.ReadLine();
-                    int id = Int32.TryParse(idNotFormatted, out _) ? Int32.Parse(idNotFormatted) : -1;
-                    if (idList.Contains(id))
+                    foreach (var a in L)
                     {
-                        Console.Clear();
-                        Cars car = service.GetCar(id);
-                        Console.WriteLine($"Trim: {car.Trim}");
-                        Console.WriteLine($"Make: {car.Make}");
-                        Console.WriteLine($"Model: {car.Model}");
-                        Console.WriteLine($"Generation: {car.Generation}");
-                        Console.WriteLine($"Body: {car.Body}");
-                        Console.WriteLine($"Gearbox: {car.Gearbox}");
-                        Console.WriteLine($"Engine Type: {car.Engine_type}");
-                        Console.WriteLine($"Engine Volume: {car.Engine_volume}");
-                        Console.WriteLine($"Engine Power: {car.Engine_power}");
-                        Console.WriteLine($"Year of manufacture: {car.Year}");
-                        Console.WriteLine($"Image: https://info-km.com/api/GoogleAPI/fetchGoogleAPI.php?img={car.Image}");
-
-                        break;
+                        idList.Add(a.Id);
+                        Console.WriteLine($"({a.Id}) {a.Make} {a.Model} {a.Year} {a.Trim} {a.Generation} {a.Body} {a.Drive} {a.Gearbox} {a.Engine_type} {a.Engine_volume} {a.Engine_power}");
                     }
-                    else Console.WriteLine("Wrong model id. Please try again!");
-                } while (true);
-            }
-            else if (mode == 2)
-            {
-                Console.Clear();
-                string json = JsonConvert.SerializeObject(L);
-                Console.WriteLine(json);
+                    do
+                    {
+                        Console.WriteLine("Select your model!");
+                        string idNotFormatted = Console.ReadLine();
+                        int id = Int32.TryParse(idNotFormatted, out _) ? Int32.Parse(idNotFormatted) : -1;
+                        if (idList.Contains(id))
+                        {
+                            Console.Clear();
+                            Cars car = service.GetCar(id);
+                            Console.WriteLine($"Trim: {car.Trim}");
+                            Console.WriteLine($"Make: {car.Make}");
+                            Console.WriteLine($"Model: {car.Model}");
+                            Console.WriteLine($"Generation: {car.Generation}");
+                            Console.WriteLine($"Body: {car.Body}");
+                            Console.WriteLine($"Gearbox: {car.Gearbox}");
+                            Console.WriteLine($"Engine Type: {car.Engine_type}");
+                            Console.WriteLine($"Engine Volume: {car.Engine_volume}");
+                            Console.WriteLine($"Engine Power: {car.Engine_power}");
+                            Console.WriteLine($"Year of manufacture: {car.Year}");
+                            Console.WriteLine($"Image: https://info-km.com/api/GoogleAPI/fetchGoogleAPI.php?img={car.Image}");
+
+                            break;
+                        }
+                        else Console.WriteLine("Wrong model id. Please try again!");
+                    } while (true);
+                }
+                else if (mode == 2)
+                {
+                    Console.Clear();
+                    string json = JsonConvert.SerializeObject(L);
+                    Console.WriteLine(json);
+
+                }
 
             }
-
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
             //L.ForEach(i => Console.Write("{0}\t", i));
             //Console.WriteLine(context.Cars.Any());
         }
