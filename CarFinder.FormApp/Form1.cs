@@ -1,4 +1,4 @@
-﻿
+
 
 namespace CarFinder.FormApp
 {
@@ -59,21 +59,27 @@ namespace CarFinder.FormApp
 
         private void SearchForCar(string SearchString)
         {
-            dataGridView1.DataSource = service.DetermineGet(SearchString);
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[3].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
-            dataGridView1.Columns[9].Visible = false;
-            dataGridView1.Columns[11].Visible = false;
-            dataGridView1.Columns[13].Visible = false;
-            dataGridView1.Columns[15].Visible = false;
-            dataGridView1.Columns[20].Visible = false;
-            dataGridView1.Columns[21].Visible = false;
-            dataGridView1.Columns[22].Visible = false;
-            dataGridView1.Columns[23].Visible = false;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            try
+            {
+                dataGridView1.DataSource = service.DetermineGet(SearchString);
+                dataGridView1.ReadOnly = true;
+                dataGridView1.Columns[0].Visible = false;
+                dataGridView1.Columns[1].Visible = false;
+                dataGridView1.Columns[3].Visible = false;
+                dataGridView1.Columns[5].Visible = false;
+                dataGridView1.Columns[9].Visible = false;
+                dataGridView1.Columns[11].Visible = false;
+                dataGridView1.Columns[13].Visible = false;
+                dataGridView1.Columns[15].Visible = false;
+                dataGridView1.Columns[20].Visible = false;
+                dataGridView1.Columns[21].Visible = false;
+                dataGridView1.Columns[22].Visible = false;
+                dataGridView1.Columns[23].Visible = false;
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
